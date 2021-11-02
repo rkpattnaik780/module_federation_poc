@@ -37,6 +37,10 @@ module.exports = {
         name: 'material_components',
         filename:
           'remoteEntry.js',
+        remotes: {
+          css_components:
+            'css_components@http://localhost:8084/remoteEntry.js',
+        },
         exposes: {
           './NavBar':
             './src/Components/NavBar',

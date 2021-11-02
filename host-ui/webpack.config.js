@@ -40,23 +40,23 @@ module.exports = {
         remotes: {
           material_components:
             'material_components@http://localhost:8083/remoteEntry.js',
-          utils:
-          'utils@http://localhost:8085/remoteEntry.js'
+          css_components:
+            'css_components@http://localhost:8084/remoteEntry.js',
         },
         shared: {
           "@material-ui/core": {
-              eager: true,
-              singleton: true,
+            eager: true,
+            singleton: true,
           },
           "react": {
-              eager: true,
-              singleton: true,
+            eager: true,
+            singleton: true,
           },
           "react-dom": {
-              eager: true,
-              singleton: true,
+            eager: true,
+            singleton: true,
           },
-      },
+        },
       }
     ),
     new HtmlWebpackPlugin({

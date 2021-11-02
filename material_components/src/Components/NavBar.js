@@ -19,9 +19,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ButtonAppBar = ({ add }) => {
+const NavBar = () => {
 
-  console.log(add);
   const classes = useStyles();
 
   return (
@@ -41,4 +40,4 @@ const ButtonAppBar = ({ add }) => {
   );
 }
 
-export default ButtonAppBar;
+export default NavBar;

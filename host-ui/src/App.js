@@ -1,37 +1,25 @@
 import './App.css';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const NavBar = React.lazy(
   () => import('material_components/NavBar')
 );
 
-const add = React.lazy(
-  () => import('utils')
-)
+const Footer = React.lazy(
+  () => import('css_components/Footer')
+);
 
 function App() {
 
-  useEffect(() => {
-    console.log(add);
-  }, [])
   return (
     <div className="App">
-      <React.Suspense fallback='Loading Button'>
-        <NavBar add={add} />
+      <React.Suspense fallback='Loading Navbar'>
+        <NavBar />
       </React.Suspense>
-      {/* <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      <h1>This header is from hosted ui - NavBar above comes from the federated UI</h1>
+      <React.Suspense fallback='Loading Footer'>
+        <Footer />
+      </React.Suspense>
     </div>
   );
 }

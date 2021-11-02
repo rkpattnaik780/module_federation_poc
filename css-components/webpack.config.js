@@ -3,7 +3,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 module.exports = {
   mode: 'development',
   devServer: {
-    port: 8085,
+    port: 8084,
   },
   module: {
     rules: [
@@ -12,32 +12,36 @@ module.exports = {
              to compile any file with extension
              .js */
         test: /\.js?$/,
+        /* exclude node_modules directory from babel. 
+            Babel will not compile any files in this directory*/
+        exclude: /node_modules/,
         // To Use babel Loader
         loader:
           'babel-loader',
         options: {
           presets: [
             '@babel/preset-env' /* to transfer any advansed ES to ES5 */,
+            '@babel/preset-react',
           ], // to compile react to ES5
         },
-      }
+      },
     ],
   },
   plugins: [
     new ModuleFederationPlugin(
       {
-        name: 'utils',
+        name: 'css_components',
         filename:
           'remoteEntry.js',
         exposes: {
-          './add':
-            './src/add',
-        }
+          './Footer':
+            './src/Footer',
+        },
       }
     ),
     new HtmlWebpackPlugin({
       template:
-        './src/index.html',
+        './public/index.html',
     }),
   ],
 };
